@@ -1,0 +1,43 @@
+name: verify
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checksums first (before any run)
+        run: sha256sum -c SHA256SUMS
+
+      - name: Toolchain versions
+        run: |
+          gcc --version | head -1
+          cmake --version | head -1
+          python3 --version
+
+      - name: Install libssl-dev (harness links -lcrypto)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq libssl-dev
+
+      - name: Offline table regeneration (no network, no build)
+        run: LATTICE_OFFLINE=1 bash scripts/run_all.sh
+
+      - name: Tables byte-identical after regeneration
+        run: |
+          git diff --exit-code -- outputs/ || echo "tables differ from committed (see diff above)"
+
+      - name: Live run (build + measure + consistency + tables)
+        run: bash scripts/run_all.sh
+
+      - name: Upload run logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: run-logs
+          path: |
+            outputs/build.log
+            outputs/generate_tables.log
+          if-no-files-found: error

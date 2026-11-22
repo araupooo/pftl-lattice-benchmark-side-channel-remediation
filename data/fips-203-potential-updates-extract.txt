@@ -1,0 +1,29 @@
+FILE: fips-203-potential-updates.xlsx
+SHA-256: edf899c89762449f43d7713883caeefc2e4ae9ae98d5a76b339547db22cb3ac7
+SIZE: 23849 bytes
+
+HEADER ROWS (pre-table):
+Potential Updates (Errata)
+Document: | NIST FIPS 203
+Publication Date: | August 2024
+Released: | 2024-08-13 00:00:00
+PDF: | https://doi.org/10.6028/NIST.FIPS.203
+Publication Details: | https://csrc.nist.gov/pubs/fips/203/final
+
+The following errors have been identified in the document. 
+These errors were overlooked during the NIST review process. For example, they may include corrections for spelling or typographical errors. 
+Potential corrections attempt to remove ambiguity and improve interpretation of the document. 
+Potential corrections DO NOT introduce new technical requirements. 
+Potential corrections ARE NOT official changes, but may be corrected in a future errata update of the publication. 
+If there are a significant number of corrections, then NIST will determine whether to issue an errata update or a full revision of the publication.
+
+
+ERRATA ENTRIES: 30
+
+--- Entry 1 | Date identified: 2025-03-31 | Location: Appendix A ---
+Issue: Algorithms 9 and 10 use the zeta values for i = 1, …, 127, however Appendix A also includes the value 1 (corresponding to i = 0).
+Potential correction: After the first two sentences of Appendix A, a new sentence will be added:  "The value 1, corresponding to i = 0, has been included so that i-th entry of the array would then equal 𝜁^BitRev_7(i)." 
+
+--- Entry 2 | Date identified: 2025-10-17 | Location: Section 5.3 ---
+Issue: In Algorithm 15, line 7, the comment reads "decode plaintext m from polynomial v."  However, v is not used in the algorithm.
+Potential correction: The comment will be changed to read "decode plaintext m from polynomial w."

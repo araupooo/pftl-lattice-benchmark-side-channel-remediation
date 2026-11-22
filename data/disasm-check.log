@@ -1,0 +1,56 @@
+disasm_check — liboqs 0.16.0, gcc 13.3.0 -O3 Release, ML-KEM-768
+archive: <PACK-WORKDIR>/work/liboqs/build/lib/liboqs.a
+speed_kem binary: <PACK-WORKDIR>/work/liboqs/build/tests/speed_kem
+NOTE: no Clang on this machine (checked: clang NOT FOUND).
+The Clang 15-18 KyberSlash-style reproduction was NOT run; section (b)
+is a gcc-side substitute check only.
+
+== (a) div/idiv census — ML-KEM-768 X86_64 implementation (<PACK-WORKDIR>/work/liboqs/build/src/kem/ml_kem/CMakeFiles/ml_kem_768_x86_64.dir/mlkem-native_ml-kem-768_x86_64/mlkem/src) ==
+Method: objdump -d every .o in the implementation dir (incl. native asm);
+count instructions whose mnemonic is div/divq/divl/idiv. 'div' as a
+substring of another word is NOT counted. Full dump saved for audit.
+  full disassembly: work/measure/div-census-X86_64.asm
+  TOTAL div/idiv instructions: 0
+  per-symbol div counts (only symbols with >=1):
+
+== (a) div/idiv census — ML-KEM-768 C-ref implementation (<PACK-WORKDIR>/work/liboqs/build/src/kem/ml_kem/CMakeFiles/ml_kem_768_ref.dir/mlkem-native_ml-kem-768_ref/mlkem/src) ==
+Method: objdump -d every .o in the implementation dir (incl. native asm);
+count instructions whose mnemonic is div/divq/divl/idiv. 'div' as a
+substring of another word is NOT counted. Full dump saved for audit.
+  full disassembly: work/measure/div-census-C-ref.asm
+  TOTAL div/idiv instructions: 0
+  per-symbol div counts (only symbols with >=1):
+
+== (a) div census — whole liboqs.a, ML-KEM-768 symbols only ==
+ML-KEM-768 symbols in archive: 102
+
+== (a) div census — linked speed_kem binary, ML-KEM-768 decaps-path symbols ==
+  PQCP_MLKEM_NATIVE_MLKEM768_X86_64_dec: 0 div/idiv
+  PQCP_MLKEM_NATIVE_MLKEM768_X86_64_indcpa_dec: 0 div/idiv
+  PQCP_MLKEM_NATIVE_MLKEM768_X86_64_indcpa_enc: 0 div/idiv
+  PQCP_MLKEM_NATIVE_MLKEM768_X86_64_check_sk: 0 div/idiv
+  PQCP_MLKEM_NATIVE_MLKEM768_X86_64_check_pk: 0 div/idiv
+  PQCP_MLKEM_NATIVE_MLKEM768_X86_64_poly_frommsg: 0 div/idiv
+  PQCP_MLKEM_NATIVE_MLKEM768_X86_64_poly_tomsg: 0 div/idiv
+  PQCP_MLKEM_NATIVE_MLKEM768_X86_64_poly_compress_d10: 0 div/idiv
+  PQCP_MLKEM_NATIVE_MLKEM768_X86_64_poly_compress_d4: 0 div/idiv
+  PQCP_MLKEM_NATIVE_MLKEM768_X86_64_poly_decompress_d10: 0 div/idiv
+  PQCP_MLKEM_NATIVE_MLKEM768_X86_64_poly_decompress_d4: 0 div/idiv
+  PQCP_MLKEM_NATIVE_MLKEM768_X86_64_polyvec_decompress_du: 0 div/idiv
+
+== (b) poly_frommsg — secret-dependent branch check (gcc -O2 substitute) ==
+full disassembly saved to: work/measure/poly_frommsg_x86_64.asm
+conditional-branch census in poly_frommsg (X86_64):
+      1 	jne 
+total conditional jumps: 1
+div/idiv in poly_frommsg: 0
+cmov/setcc instructions (0 expected: selection is arithmetic masking): 0
+Reading of the disassembly:
+  The function is fully unrolled (32 message bytes x 8 bits). Per bit it does:
+  and (msg byte),%al; movzbl; neg; sar; and $0x681 (=(q+1)/2); store.
+  The only conditional branch is the loop-back 'jne' at the end, which
+  compares the output pointer against a fixed end pointer (32 fixed
+  iterations) — it does NOT depend on any message bit. No branch, cmov
+  target, or div operand is conditioned on a secret message bit.
+  Verdict: NO secret-dependent branch on message bits in the gcc-built
+  poly_frommsg. (Clang 15-18 reproduction NOT run — no Clang.)

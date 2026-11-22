@@ -1,0 +1,91 @@
+{
+ "engine": "liboqs",
+ "engine_version": "0.16.0",
+ "engine_tag_commit": "5a1a854b0dc9f2141bdc771c555ee60c37950183",
+ "engine_tree": "8e0a3a68b247f821ed535a141aa896a7fda59d2d",
+ "engine_repo": "https://github.com/open-quantum-safe/liboqs",
+ "engine_tag": "0.16.0",
+ "engine_released": "2026-07-09",
+ "mlkem_backend": "pq-code-package/mlkem-native v1.2.0",
+ "mldsa_backend": "pq-code-package/mldsa-native",
+ "pqclean_head": "0586a824fc0d49df0b6b6e9179d8d15d06d0974f",
+ "pqclean_repo": "https://github.com/PQClean/PQClean",
+ "pqclean_status": "archived read-only 2026-08-04",
+ "kat_repo": "https://github.com/post-quantum-cryptography/KAT",
+ "kat_repo_status": "archived",
+ "kat_files": {
+  "mlkem768": {
+   "file": "kat_MLKEM_768.rsp",
+   "sha256": "6ecab47c229a80b85afd8e9b1b76e604317b2505ac35382b0e288116e1ba860a",
+   "bytes": 12012890,
+   "count_blocks": 1000
+  },
+  "mlkem512": {
+   "file": "kat_MLKEM_512.rsp",
+   "sha256": "783106e35afb1ab9aba557630f5380f3ffa40b83abfbe75a03059b5986702017",
+   "bytes": 8428890,
+   "count_blocks": 1000
+  },
+  "mlkem1024": {
+   "file": "kat_MLKEM_1024.rsp",
+   "sha256": "ed23c551c53761649a2dd9573eda2f49f58285675d639fe8c0d585e21f37896c",
+   "bytes": 16236890,
+   "count_blocks": 1000
+  },
+  "mldsa65": {
+   "file": "kat_MLDSA_65_det_pure.rsp",
+   "sha256": "cd64e9993263c34611a0e664de9b371c43c030a4295cb34809d6f496b96d0bd0",
+   "bytes": 2209122,
+   "count_blocks": 100
+  },
+  "mldsa44": {
+   "file": "kat_MLDSA_44_det_pure.rsp",
+   "sha256": "0899c4ef2621e1ef73ebe38f84c9ce9195329b6d0a08ccaee42c8054cdf0b099",
+   "bytes": 1608922,
+   "count_blocks": 100
+  },
+  "mldsa87": {
+   "file": "kat_MLDSA_87_det_pure.rsp",
+   "sha256": "6ffa13735d29adc2f4d5ace33953b4f7763e7090b189953bded7872794b7b2bc",
+   "bytes": 2773522,
+   "count_blocks": 100
+  }
+ },
+ "toolchain": {
+  "gcc": "13.3.0",
+  "cmake": "3.28.3",
+  "python": "3.12.3",
+  "openssl": "3.0.13",
+  "make": "4.3",
+  "ninja": "not installed"
+ },
+ "machine": {
+  "cpu": "AMD EPYC 9D25",
+  "vcpus": 4,
+  "flags": "AVX2, AVX512F, BMI2, AES",
+  "clang": "not installed"
+ },
+ "postfiatd_head": "24c5487d9bfc99171380960e4eeb1543a724cfae",
+ "postfiatd_lattice_code": "none (zero grep hits for ml-kem/mlkem/kyber/dilithium/ml-dsa/mldsa/lattice/post-quantum/pqclean/liboqs)",
+ "fips203_errata": {
+  "file": "fips-203-potential-updates.xlsx",
+  "sha256": "edf899c89762449f43d7713883caeefc2e4ae9ae98d5a76b339547db22cb3ac7",
+  "bytes": 23849,
+  "entries": 2
+ },
+ "fips204_errata": {
+  "file": "fips-204-potential-updates.xlsx",
+  "sha256": "5bc93ce63bc647e6d1d456cb2d3a171426c15aca4a7a0e0edd40d08b7a34c793",
+  "bytes": 23071,
+  "entries": 12
+ },
+ "build": {
+  "generator": "Unix Makefiles",
+  "build_type": "Release",
+  "minimal_build": "KEM_ml_kem_512;KEM_ml_kem_768;KEM_ml_kem_1024;SIG_ml_dsa_44;SIG_ml_dsa_65;SIG_ml_dsa_87",
+  "scoped_build_seconds": 53,
+  "full_build_seconds": 897
+ },
+ "liboqs_a_scoped_bytes": 1762738,
+ "liboqs_a_full_bytes": 38720322
+}

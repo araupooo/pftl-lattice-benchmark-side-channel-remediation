@@ -1,0 +1,16 @@
+memory profile — peak RSS via resource.getrusage(RUSAGE_CHILDREN)
+(/usr/bin/time is not installed on this machine; ru_maxrss is the
+same quantity it reports as 'Maximum resident set size', in KiB.)
+NOTE: ru_maxrss is the max over all children waited for so far in
+this process, so for a per-command peak run one command per process:
+  python3 work/measure/mem_profile.py speed_kem   (or speed_sig)
+command: <PACK-WORKDIR>/work/liboqs/build/tests/speed_kem ML-KEM-768 --duration 3
+  exit code: 0
+  wall time: 9.05 s
+  user time: 8.97 s, system time: 0.06 s (cumulative children)
+  Maximum resident set size: 11444 KiB (11.2 MiB)
+command: <PACK-WORKDIR>/work/liboqs/build/tests/speed_sig ML-DSA-65 --duration 3
+  exit code: 0
+  wall time: 9.03 s
+  user time: 17.93 s, system time: 0.08 s (cumulative children)
+  Maximum resident set size: 11444 KiB (11.2 MiB)

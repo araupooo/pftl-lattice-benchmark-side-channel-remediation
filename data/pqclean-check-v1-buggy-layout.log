@@ -1,0 +1,24 @@
+pqclean_check — PQClean snapshot ML-KEM-768/clean — q=3329, 20 mutated keys, 4 coeffs/key
+control valid-key enc: ACCEPT
+control valid-key dec: rc=SUCCESS ss_match=yes
+mutated-key trial  0: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  1: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  2: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  3: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  4: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  5: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  6: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  7: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  8: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  9: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 10: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 11: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 12: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 13: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 14: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 15: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 16: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 17: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 18: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 19: coeffs_unreduced=4 pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+SUMMARY PQClean ML-KEM-768/clean non-reduced pk: enc accepted 20/20, dec ss matched original sk 0/20, total coeffs unreduced 80

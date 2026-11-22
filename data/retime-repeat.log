@@ -1,0 +1,40 @@
+retime harness — liboqs 0.16.0 — NTRIALS=1000 warmup=50 clock=CLOCK_MONOTONIC_RAW single-threaded
+== ML-KEM-512 ==
+sizes: pk=800 sk=1632 ct=768 ss=32 keypair_seed=64 encaps_seed=32
+keygen                       n=1000 mean=8.01 median=7.44 p95=8.03 p99=17.34 stdev=8.91 ops/s=124845.2
+encaps                       n=1000 mean=9.32 median=8.64 p95=8.69 p99=19.55 stdev=8.69 ops/s=107281.2
+decaps                       n=1000 mean=14.28 median=12.53 p95=19.66 p99=48.60 stdev=13.22 ops/s=70051.9
+decaps ss mismatches: 0 / 1000
+== ML-KEM-768 ==
+sizes: pk=1184 sk=2400 ct=1088 ss=32 keypair_seed=64 encaps_seed=32
+keygen                       n=1000 mean=14.13 median=12.97 p95=13.66 p99=29.65 stdev=15.00 ops/s=70777.4
+encaps                       n=1000 mean=16.01 median=15.46 p95=17.49 p99=32.21 stdev=3.12 ops/s=62445.1
+decaps                       n=1000 mean=20.13 median=19.17 p95=22.02 p99=35.63 stdev=4.72 ops/s=49682.3
+decaps ss mismatches: 0 / 1000
+== ML-KEM-1024 ==
+sizes: pk=1568 sk=3168 ct=1568 ss=32 keypair_seed=64 encaps_seed=32
+keygen                       n=1000 mean=18.87 median=17.63 p95=18.74 p99=34.58 stdev=10.02 ops/s=52995.0
+encaps                       n=1000 mean=21.57 median=19.49 p95=26.84 p99=44.51 stdev=9.01 ops/s=46366.6
+decaps                       n=1000 mean=27.30 median=25.75 p95=34.31 p99=44.45 stdev=8.18 ops/s=36632.7
+decaps ss mismatches: 0 / 1000
+== ML-DSA-44 ==
+sizes: pk=1312 sk=2560 sig=2420
+keygen                       n=1000 mean=28.72 median=27.39 p95=37.21 p99=44.53 stdev=5.31 ops/s=34817.3
+sign                         n=1000 mean=108.55 median=86.92 p95=256.34 p99=348.23 stdev=71.20 ops/s=9212.1
+sign signature_len: min=2420 max=2420 (nominal max 2420)
+verify                       n=1000 mean=40.62 median=41.36 p95=52.90 p99=60.01 stdev=6.30 ops/s=24616.7
+verify failures: 0 / 1000
+== ML-DSA-65 ==
+sizes: pk=1952 sk=4032 sig=3309
+keygen                       n=1000 mean=64.50 median=64.32 p95=77.80 p99=90.06 stdev=12.68 ops/s=15504.5
+sign                         n=1000 mean=159.81 median=129.05 p95=358.99 p99=485.83 stdev=101.44 ops/s=6257.5
+sign signature_len: min=3309 max=3309 (nominal max 3309)
+verify                       n=1000 mean=49.77 median=48.12 p95=57.18 p99=77.41 stdev=9.56 ops/s=20093.9
+verify failures: 0 / 1000
+== ML-DSA-87 ==
+sizes: pk=2592 sk=4896 sig=4627
+keygen                       n=1000 mean=72.22 median=69.45 p95=83.38 p99=120.44 stdev=9.43 ops/s=13845.9
+sign                         n=1000 mean=171.72 median=144.11 p95=346.69 p99=500.83 stdev=89.22 ops/s=5823.5
+sign signature_len: min=4627 max=4627 (nominal max 4627)
+verify                       n=1000 mean=71.80 median=69.82 p95=80.66 p99=96.02 stdev=5.30 ops/s=13927.5
+verify failures: 0 / 1000

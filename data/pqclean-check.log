@@ -1,0 +1,24 @@
+pqclean_check — PQClean snapshot ML-KEM-768/clean — q=3329, 20 mutated keys, 4 coeffs/key
+control valid-key enc: ACCEPT
+control valid-key dec: rc=SUCCESS ss_match=yes
+mutated-key trial  0: coeffs_unreduced=4 coeff_idx=[678,249,369,53] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  1: coeffs_unreduced=4 coeff_idx=[50,647,735,69] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  2: coeffs_unreduced=4 coeff_idx=[16,648,709,491] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  3: coeffs_unreduced=4 coeff_idx=[462,687,2,639] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  4: coeffs_unreduced=4 coeff_idx=[249,408,639,316] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  5: coeffs_unreduced=4 coeff_idx=[274,183,114,109] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  6: coeffs_unreduced=4 coeff_idx=[695,150,745,369] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  7: coeffs_unreduced=4 coeff_idx=[179,94,716,647] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  8: coeffs_unreduced=4 coeff_idx=[319,495,589,648] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial  9: coeffs_unreduced=4 coeff_idx=[618,521,258,698] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 10: coeffs_unreduced=4 coeff_idx=[466,687,194,288] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 11: coeffs_unreduced=4 coeff_idx=[139,300,596,660] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 12: coeffs_unreduced=4 coeff_idx=[740,76,6,463] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 13: coeffs_unreduced=4 coeff_idx=[758,251,369,430] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 14: coeffs_unreduced=4 coeff_idx=[2,33,530,50] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 15: coeffs_unreduced=4 coeff_idx=[2,472,653,695] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 16: coeffs_unreduced=4 coeff_idx=[62,495,121,737] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 17: coeffs_unreduced=4 coeff_idx=[253,585,80,204] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 18: coeffs_unreduced=4 coeff_idx=[30,738,543,82] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+mutated-key trial 19: coeffs_unreduced=4 coeff_idx=[585,350,182,106] pk_bytes_differ=yes enc=ACCEPT dec_ss_matches_original_sk=no
+SUMMARY PQClean ML-KEM-768/clean non-reduced pk: enc accepted 20/20, dec ss matched original sk 0/20, total coeffs unreduced 80

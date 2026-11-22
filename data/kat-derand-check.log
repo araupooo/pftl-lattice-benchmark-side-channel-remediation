@@ -1,0 +1,9 @@
+KAT derand check — ML-KEM-768 — liboqs vs official kat_MLKEM_768.rsp
+method: keypair seed = d||z, encaps seed = msg, via OQS_KEM_*_derand
+vectors in .rsp: 1000; checked: first 5
+vector 0: pk=PASS, sk=PASS, ct=PASS, ss=PASS (decaps_ss_match=yes)
+vector 1: pk=PASS, sk=PASS, ct=PASS, ss=PASS (decaps_ss_match=yes)
+vector 2: pk=PASS, sk=PASS, ct=PASS, ss=PASS (decaps_ss_match=yes)
+vector 3: pk=PASS, sk=PASS, ct=PASS, ss=PASS (decaps_ss_match=yes)
+vector 4: pk=PASS, sk=PASS, ct=PASS, ss=PASS (decaps_ss_match=yes)
+SUMMARY ML-KEM-768 derand-vs-rsp: 20 field-PASS, 0 field-FAIL over first 5 vectors

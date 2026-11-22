@@ -1,0 +1,85 @@
+input_check battery — liboqs 0.16.0 — q=3329, 20 mutated keys/set, 4 coeffs/key
+== ML-KEM-512 (k=2) ==
+sizes: pk=800 sk=1632 ct=768 ss=32
+control valid-key encaps: ACCEPT
+control valid-key decaps: rc=SUCCESS ss_match=yes
+mutated-key trial  0: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  1: coeffs_unreduced=4 pk_bytes_differ=yes encaps=REJECT(error) decaps_ss_matches_original_sk=no
+mutated-key trial  2: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  3: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  4: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  5: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  6: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  7: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  8: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  9: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 10: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 11: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 12: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 13: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 14: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 15: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 16: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 17: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 18: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 19: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+SUMMARY ML-KEM-512 non-reduced pk: encaps accepted 19/20, decaps ss matched original sk 0/20, total coeffs unreduced 80
+tamper baseline: decaps rc=SUCCESS ss_match=yes
+tamper H(ek) byte@1573: decaps rc=ERROR ss_match=yes -> REJECT(error)
+tamper embedded-ek byte@778: decaps rc=ERROR ss_match=yes -> REJECT(error)
+== ML-KEM-768 (k=3) ==
+sizes: pk=1184 sk=2400 ct=1088 ss=32
+control valid-key encaps: ACCEPT
+control valid-key decaps: rc=SUCCESS ss_match=yes
+mutated-key trial  0: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  1: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  2: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  3: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  4: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  5: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  6: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  7: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  8: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  9: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 10: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 11: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 12: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 13: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 14: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 15: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 16: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 17: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 18: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 19: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+SUMMARY ML-KEM-768 non-reduced pk: encaps accepted 20/20, decaps ss matched original sk 0/20, total coeffs unreduced 80
+tamper baseline: decaps rc=SUCCESS ss_match=yes
+tamper H(ek) byte@2341: decaps rc=ERROR ss_match=yes -> REJECT(error)
+tamper embedded-ek byte@1162: decaps rc=ERROR ss_match=yes -> REJECT(error)
+== ML-KEM-1024 (k=4) ==
+sizes: pk=1568 sk=3168 ct=1568 ss=32
+control valid-key encaps: ACCEPT
+control valid-key decaps: rc=SUCCESS ss_match=yes
+mutated-key trial  0: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  1: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  2: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  3: coeffs_unreduced=4 pk_bytes_differ=yes encaps=REJECT(error) decaps_ss_matches_original_sk=no
+mutated-key trial  4: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  5: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  6: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  7: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  8: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial  9: coeffs_unreduced=4 pk_bytes_differ=yes encaps=REJECT(error) decaps_ss_matches_original_sk=no
+mutated-key trial 10: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 11: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 12: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 13: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 14: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 15: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 16: coeffs_unreduced=4 pk_bytes_differ=yes encaps=REJECT(error) decaps_ss_matches_original_sk=no
+mutated-key trial 17: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 18: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+mutated-key trial 19: coeffs_unreduced=4 pk_bytes_differ=yes encaps=ACCEPT decaps_ss_matches_original_sk=no
+SUMMARY ML-KEM-1024 non-reduced pk: encaps accepted 17/20, decaps ss matched original sk 0/20, total coeffs unreduced 80
+tamper baseline: decaps rc=SUCCESS ss_match=yes
+tamper H(ek) byte@3109: decaps rc=ERROR ss_match=yes -> REJECT(error)
+tamper embedded-ek byte@1546: decaps rc=ERROR ss_match=yes -> REJECT(error)

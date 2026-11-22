@@ -1,0 +1,70 @@
+running: <PACK-WORKDIR>/work/liboqs/build/tests/kat_kem ML-KEM-768 --all
+running: <PACK-WORKDIR>/work/liboqs/build/tests/kat_sig ML-DSA-65 --all
+KAT fidelity check — liboqs 0.16.0 vs official .rsp files
+pack root: <PACK-WORKDIR>
+== ML-KEM-768 ==
+official file: <PACK-WORKDIR>/work/kat/kat_MLKEM_768.rsp
+liboqs binary: tests/kat_kem ML-KEM-768 --all
+vectors in .rsp: 1000; vectors from liboqs: 100
+fields compared: seed, pk, sk, ct, ss
+known format differences (documented, not counted as failures):
+  - .rsp carries extra fields z, d, msg that liboqs kat_kem does not print.
+vector 0: seed=FAIL(len rsp=96 liboqs=96), pk=FAIL(len rsp=2368 liboqs=2368), sk=FAIL(len rsp=4800 liboqs=4800), ct=FAIL(len rsp=2176 liboqs=2176), ss=FAIL(len rsp=64 liboqs=64)
+  note: seed differs — downstream fields derive from the seed, so
+        pk/sk/ct/ss (or sm) mismatches on this vector follow from it.
+vector 1: seed=FAIL(len rsp=96 liboqs=96), pk=FAIL(len rsp=2368 liboqs=2368), sk=FAIL(len rsp=4800 liboqs=4800), ct=FAIL(len rsp=2176 liboqs=2176), ss=FAIL(len rsp=64 liboqs=64)
+  note: seed differs — downstream fields derive from the seed, so
+        pk/sk/ct/ss (or sm) mismatches on this vector follow from it.
+vector 2: seed=FAIL(len rsp=96 liboqs=96), pk=FAIL(len rsp=2368 liboqs=2368), sk=FAIL(len rsp=4800 liboqs=4800), ct=FAIL(len rsp=2176 liboqs=2176), ss=FAIL(len rsp=64 liboqs=64)
+  note: seed differs — downstream fields derive from the seed, so
+        pk/sk/ct/ss (or sm) mismatches on this vector follow from it.
+vector 3: seed=FAIL(len rsp=96 liboqs=96), pk=FAIL(len rsp=2368 liboqs=2368), sk=FAIL(len rsp=4800 liboqs=4800), ct=FAIL(len rsp=2176 liboqs=2176), ss=FAIL(len rsp=64 liboqs=64)
+  note: seed differs — downstream fields derive from the seed, so
+        pk/sk/ct/ss (or sm) mismatches on this vector follow from it.
+vector 4: seed=FAIL(len rsp=96 liboqs=96), pk=FAIL(len rsp=2368 liboqs=2368), sk=FAIL(len rsp=4800 liboqs=4800), ct=FAIL(len rsp=2176 liboqs=2176), ss=FAIL(len rsp=64 liboqs=64)
+  note: seed differs — downstream fields derive from the seed, so
+        pk/sk/ct/ss (or sm) mismatches on this vector follow from it.
+SUMMARY ML-KEM-768: 0 field-PASS, 25 field-FAIL over first 5 vectors
+
+== ML-DSA-65 ==
+official file: <PACK-WORKDIR>/work/kat/kat_MLDSA_65_det_pure.rsp
+liboqs binary: tests/kat_sig ML-DSA-65 --all
+vectors in .rsp: 100; vectors from liboqs: 100
+fields compared: seed, pk, sk, sm
+known format differences (documented, not counted as failures):
+  - .rsp carries extra fields xi, ctx that liboqs kat_sig does not print.
+  - .rsp mlen = 16*(count+1); liboqs kat_sig mlen = 33*(count+1).
+    => msg differs in length and content, so sm is expected to differ
+       even when seed/pk/sk match. seed/pk/sk are the meaningful comparison.
+vector 0: seed=FAIL(len rsp=96 liboqs=96), pk=FAIL(len rsp=3904 liboqs=3904), sk=FAIL(len rsp=8064 liboqs=8064), sm=FAIL(len rsp=6650 liboqs=6684)
+  note: seed differs — downstream fields derive from the seed, so
+        pk/sk/ct/ss (or sm) mismatches on this vector follow from it.
+vector 1: seed=FAIL(len rsp=96 liboqs=96), pk=FAIL(len rsp=3904 liboqs=3904), sk=FAIL(len rsp=8064 liboqs=8064), sm=FAIL(len rsp=6682 liboqs=6750)
+  note: seed differs — downstream fields derive from the seed, so
+        pk/sk/ct/ss (or sm) mismatches on this vector follow from it.
+vector 2: seed=FAIL(len rsp=96 liboqs=96), pk=FAIL(len rsp=3904 liboqs=3904), sk=FAIL(len rsp=8064 liboqs=8064), sm=FAIL(len rsp=6714 liboqs=6816)
+  note: seed differs — downstream fields derive from the seed, so
+        pk/sk/ct/ss (or sm) mismatches on this vector follow from it.
+vector 3: seed=FAIL(len rsp=96 liboqs=96), pk=FAIL(len rsp=3904 liboqs=3904), sk=FAIL(len rsp=8064 liboqs=8064), sm=FAIL(len rsp=6746 liboqs=6882)
+  note: seed differs — downstream fields derive from the seed, so
+        pk/sk/ct/ss (or sm) mismatches on this vector follow from it.
+vector 4: seed=FAIL(len rsp=96 liboqs=96), pk=FAIL(len rsp=3904 liboqs=3904), sk=FAIL(len rsp=8064 liboqs=8064), sm=FAIL(len rsp=6778 liboqs=6948)
+  note: seed differs — downstream fields derive from the seed, so
+        pk/sk/ct/ss (or sm) mismatches on this vector follow from it.
+SUMMARY ML-DSA-65: 0 field-PASS, 20 field-FAIL over first 5 vectors
+
+OVERALL: 0 field-PASS, 45 field-FAIL (first 5 vectors each)
+
+INTERPRETATION (read before citing this log):
+  A seed mismatch at count 0 means the two KAT procedures differ, not
+  necessarily that the implementation is wrong. liboqs kat_kem/kat_sig
+  use the PQC-submission-era NIST AES-256-CTR-DRBG (entropy 0..47);
+  the .rsp files here are the FIPS 203/204 deterministic KATs, generated
+  by a different procedure. This was verified independently: a fresh
+  Python re-implementation of SP 800-90A CTR-DRBG (AES via openssl)
+  reproduces liboqs's count-0 seed 06155023... byte-exact, while the
+  .rsp count-0 seed 23f1c88b... is not in that DRBG stream.
+  The decisive implementation check is kat-derand-check.log: fed the
+  .rsp's own d||z/msg inputs through the derand API, liboqs reproduces
+  the .rsp pk/sk/ct/ss. If that log shows PASS, the implementation
+  matches the official FIPS vectors and only the KAT *procedure* differs.

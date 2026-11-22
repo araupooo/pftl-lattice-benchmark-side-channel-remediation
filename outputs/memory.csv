@@ -1,0 +1,3 @@
+algorithm,command,peak_rss_kib,peak_rss_mib
+ML-KEM-768,speed_kem --duration 3,11444,11.2
+ML-DSA-65,speed_sig --duration 3,11608,11.3

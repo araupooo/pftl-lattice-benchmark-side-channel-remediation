@@ -1,0 +1,4 @@
+algorithm,procedure,fields,vectors,fields_pass,fields_fail,verdict
+ML-KEM-768,derand API vs .rsp (first 5 vectors),pk/sk/ct/ss,5,20,0,PASS
+ML-KEM-768,kat_kem output vs .rsp (first 5 vectors),seed/pk/sk/ct/ss,5,0,45,"FAIL — procedure mismatch, not an implementation bug"
+ML-DSA-65,kat_sig output vs .rsp (first 5 vectors),seed/pk/sk/sm,5,0,20,"FAIL — procedure mismatch, not an implementation bug"

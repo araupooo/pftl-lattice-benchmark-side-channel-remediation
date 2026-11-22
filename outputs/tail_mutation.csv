@@ -1,0 +1,2 @@
+algorithm,test,positions,accepted,implicitly_rejected,errors
+ML-KEM-768,"single-byte ciphertext mutation (XOR 0x01, one position at a time)",1088,0,1088,0

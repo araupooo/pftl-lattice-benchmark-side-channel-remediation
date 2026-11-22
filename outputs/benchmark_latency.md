@@ -1,0 +1,24 @@
+# Benchmark latency (independent re-timing)
+
+N=1000 trials per operation, CLOCK_MONOTONIC_RAW, single core (taskset -c 0), 50 warmups. KEM uses derand with fixed seeds; ML-DSA keypair is random per run (no derand keypair API in liboqs 0.16.0), so only the timing distribution is claimed for ML-DSA. Medians are the reliable column: means carry occasional multi-ms host stalls on the shared VM. Source: data/retime.log.
+
+| Algorithm | Operation | n | Mean (us) | Median (us) | p95 (us) | p99 (us) | Stdev (us) | ops/s |
+|---|---|---|---|---|---|---|---|---|
+| ML-KEM-512 | keygen | 1000 | 9.23 | 8.70 | 9.49 | 22.10 | 3.74 | 108372.3 |
+| ML-KEM-512 | encaps | 1000 | 10.31 | 10.01 | 10.61 | 22.59 | 1.94 | 96949.8 |
+| ML-KEM-512 | decaps | 1000 | 14.07 | 13.71 | 14.53 | 26.13 | 2.04 | 71094.2 |
+| ML-KEM-768 | keygen | 1000 | 33.99 | 15.19 | 16.65 | 29.73 | 579.94 | 29416.8 |
+| ML-KEM-768 | encaps | 1000 | 14.91 | 13.68 | 16.42 | 35.02 | 6.65 | 67068.7 |
+| ML-KEM-768 | decaps | 1000 | 19.84 | 18.57 | 27.05 | 50.68 | 8.19 | 50400.6 |
+| ML-KEM-1024 | keygen | 1000 | 47.22 | 17.66 | 18.98 | 37.59 | 905.02 | 21179.6 |
+| ML-KEM-1024 | encaps | 1000 | 20.69 | 19.46 | 22.32 | 41.29 | 8.72 | 48322.9 |
+| ML-KEM-1024 | decaps | 1000 | 27.65 | 25.88 | 35.25 | 59.60 | 11.94 | 36164.8 |
+| ML-DSA-44 | keygen | 1000 | 28.85 | 27.36 | 36.61 | 41.98 | 21.95 | 34659.0 |
+| ML-DSA-44 | sign | 1000 | 168.58 | 89.96 | 253.18 | 457.74 | 1261.04 | 5932.0 |
+| ML-DSA-44 | verify | 1000 | 77.11 | 32.59 | 47.73 | 60.16 | 1373.77 | 12967.7 |
+| ML-DSA-65 | keygen | 1000 | 49.35 | 47.25 | 59.76 | 66.80 | 11.05 | 20262.6 |
+| ML-DSA-65 | sign | 1000 | 229.31 | 129.05 | 372.21 | 592.09 | 1509.78 | 4360.9 |
+| ML-DSA-65 | verify | 1000 | 85.30 | 48.08 | 60.60 | 79.83 | 1086.05 | 11723.3 |
+| ML-DSA-87 | keygen | 1000 | 105.05 | 69.92 | 89.76 | 107.68 | 957.87 | 9519.0 |
+| ML-DSA-87 | sign | 1000 | 287.33 | 159.10 | 387.51 | 533.99 | 1779.22 | 3480.3 |
+| ML-DSA-87 | verify | 1000 | 105.65 | 70.51 | 91.89 | 129.37 | 927.18 | 9465.0 |

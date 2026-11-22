@@ -1,0 +1,7 @@
+algorithm,operation,liboqs_speed_mean_us
+ML-DSA-65,keypair,3.004
+ML-DSA-65,sign,3.000
+ML-DSA-65,verify,3.000
+ML-KEM-768,decaps,3.000
+ML-KEM-768,encaps,3.000
+ML-KEM-768,keygen,3.000

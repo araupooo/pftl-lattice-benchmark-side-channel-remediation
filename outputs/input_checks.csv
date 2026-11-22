@@ -1,0 +1,6 @@
+engine_and_set,test,trials,accepted,rejected_or_error,verdict
+ML-KEM-512,non-reduced encapsulation key (§7.2),20,0,20,REJECT — check enforced
+ML-KEM-768,non-reduced encapsulation key (§7.2),20,0,20,REJECT — check enforced
+ML-KEM-1024,non-reduced encapsulation key (§7.2),20,0,20,REJECT — check enforced
+ML-KEM-768 (PQClean/clean),non-reduced encapsulation key (§7.2),20,20,0,ACCEPTED — no check (vulnerable baseline)
+ML-KEM-512/768/1024,tampered decapsulation key (§7.3: H(ek) + embedded ek),6,0,6,"REJECT(error) — explicit error, all 6 cases"

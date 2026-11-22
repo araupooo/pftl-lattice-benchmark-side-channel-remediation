@@ -1,0 +1,36 @@
+CHECK sizes == FIPS 203 Table 3 / FIPS 204 Table 2: yes (6 sets)
+CHECK retime decaps ss mismatches == 0: yes (0 mismatches)
+CHECK retime verify failures == 0: yes (0 failures)
+CHECK retime rows == 18 (6 sets x 3 ops): yes (18 rows)
+TABLE benchmark_latency.csv: 18 rows
+TABLE benchmark_latency.md: 18 rows
+TABLE benchmark_sizes.csv: 6 rows
+TABLE benchmark_sizes.md: 6 rows
+CHECK speed cross-check rows == 6 (3 + 3): yes (6 rows)
+TABLE benchmark_crosscheck.csv: 6 rows
+TABLE benchmark_crosscheck.md: 6 rows
+CHECK KAT derand 20/20 fields PASS: yes (20 PASS, 0 FAIL)
+TABLE kat_fidelity.csv: 3 rows
+TABLE kat_fidelity.md: 3 rows
+CHECK liboqs non-reduced pk accepted == 0/60: yes ({'ML-KEM-512': [0, 20], 'ML-KEM-768': [0, 20], 'ML-KEM-1024': [0, 20]})
+CHECK PQClean non-reduced pk accepted == 20/20: yes (20/20)
+CHECK tampered sk decaps errors == 6/6: yes (6/6)
+TABLE input_checks.csv: 5 rows
+TABLE input_checks.md: 5 rows
+CHECK tail mutation accepted == 0/1088: yes ({'positions swept': 1088, 'accepted (ss == original)': 0, 'implicitly rejected (ss != original, no error)': 1088, 'errors (decaps returned error)': 0})
+TABLE tail_mutation.csv: 1 rows
+TABLE tail_mutation.md: 1 rows
+CHECK timing diff < 3-sigma threshold: yes (diff 0.061 us vs threshold 0.397 us)
+CHECK div/idiv total == 0: yes (total 0)
+TABLE timing_probes.csv: 4 rows
+TABLE timing_probes.md: 4 rows
+CHECK memory rows == 2: yes ({'ML-KEM-768': (11444, '11.2'), 'ML-DSA-65': (11608, '11.3')})
+TABLE memory.csv: 2 rows
+TABLE memory.md: 2 rows
+CHECK findings rows == 26: yes (26 rows)
+TABLE findings.csv: 26 rows
+TABLE findings.md: 26 rows
+CHECK pins engine tag commit == 5a1a854b…: yes (5a1a854b0dc9f2141bdc771c555ee60c37950183)
+CHECK KAT subset files == 6: yes (6 files)
+CHECK KAT ML-KEM files have 1000 count blocks: yes (mlkem512/768/1024 totals: 1000, 1000, 1000)
+GENERATE VERDICT: PASS -- 0 failing checks: none

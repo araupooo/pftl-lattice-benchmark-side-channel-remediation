@@ -1,0 +1,22 @@
+Testing signature algorithms using liboqs version 0.16.0
+Configuration info
+==================
+Target platform:  x86_64-Linux-7.0.0-44-generic
+Compiler:         gcc (13.3.0)
+Compile options:  [-Wa,--noexecstack;-fomit-frame-pointer;-fdata-sections;-ffunction-sections;-Wl,--gc-sections;-Wbad-function-cast]
+OQS version:      0.16.0 (major: 0, minor: 16, patch: 0)
+Git commit:       5a1a854b0dc9f2141bdc771c555ee60c37950183
+OpenSSL enabled:  Yes (OpenSSL 3.0.13 30 Jan 2024)
+AES:              NI
+SHA-2:            OpenSSL
+SHA-3:            AVX512VL
+OQS build flags:  OQS_DIST_BUILD OQS_LIBJADE_BUILD OQS_OPT_TARGET=generic CMAKE_BUILD_TYPE=Release 
+CPU exts active:  ADX AES AVX AVX2 AVX512 BMI1 BMI2 PCLMULQDQ VPCLMULQDQ POPCNT SSE SSE2 SSE3
+Extended tests enabled
+================================================================================
+Sample computation for signature ML-DSA-65
+Testing EUF-CMA by flipping 50 random bits of the message
+Testing SUF-CMA by flipping 50 random bits of the signature
+Version source: FIPS204
+================================================================================
+verification passes as expected

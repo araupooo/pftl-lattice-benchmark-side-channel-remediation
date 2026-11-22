@@ -1,0 +1,11 @@
+helper binary exists: <PACK-WORKDIR>/work/measure/tail_mut
+tail-mutation sweep — ML-KEM-768 — XOR 0x01 per byte position, one at a time
+helper: <PACK-WORKDIR>/work/measure/tail_mut
+raw per-position verdicts saved to: tail-mutation-positions.txt
+positions swept: 1088
+accepted (ss == original): 0
+implicitly rejected (ss != original, no error): 1088
+errors (decaps returned error): 0
+accepted positions: []
+error positions: []
+helper summary line: SUMMARY ct_len=1088 positions=1088 accepted=0 implicit_reject=1088 errors=0

@@ -1,0 +1,19 @@
+timing_probe — liboqs 0.16.0 — N=1000 warmup=50 clock=CLOCK_MONOTONIC_RAW single-threaded
+== (a) ML-KEM-768 decaps: valid ct vs random-invalid ct ==
+valid                  n=1000 mean=19.15 median=18.58 p95=18.97 p99=33.38 stdev=3.02 se=0.096 cv=0.1579 min=18.47 max=72.08
+  [detail]             mean=19.1477 stdev=3.0235 se=0.0956 (for threshold math)
+invalid                n=1000 mean=19.09 median=18.56 p95=18.70 p99=29.76 stdev=2.90 se=0.092 cv=0.1517 min=18.46 max=61.28
+  [detail]             mean=19.0869 stdev=2.8952 se=0.0916 (for threshold math)
+mean difference (valid - invalid) = 0.061 us; 3-sigma detection threshold = 0.397 us
+verdict: NO detectable difference at 3-sigma threshold
+raw times written to work/measure/timing-valid.csv (1000 rows)
+raw times written to work/measure/timing-invalid.csv (1000 rows)
+== (b) ML-DSA-65 sign: 1000x fixed message, fixed keypair ==
+sign                   n=1000 mean=161.24 median=126.08 p95=377.72 p99=575.05 stdev=107.35 se=3.395 cv=0.6658 min=63.80 max=796.11
+  [detail]             mean=161.2443 stdev=107.3529 se=3.3948 (for threshold math)
+note: signing-loop iteration count is NOT exposed by the public liboqs API,
+so no time-vs-iteration correlation is measurable from outside. The
+distribution above is the observable: a bimodal/multimodal split or a
+long tail would be the signature of the abort loop. 3-sigma threshold
+on the mean (se*3) = 10.184 us.
+raw times written to work/measure/timing-sign.csv (1000 rows)

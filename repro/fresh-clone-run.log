@@ -1,0 +1,36 @@
+=== FRESH-CLONE REPRODUCTION LOG ===
+pack: liboqs 0.16.0 lattice benchmark + side-channel remediation pack
+clone: <PACK-WORKDIR>/repro-clone (fresh copy of the pack directory)
+repro run date (UTC): 2026-11-21T23:43:48Z (this file written 2026-11-22, from the recorded run output)
+
+--- 1. checksums BEFORE any run (sha256sum -c SHA256SUMS, in the clone) ---
+75/75 files OK; exit code 0 (recorded in the run output; no FAILED lines)
+
+--- 2. offline run (LATTICE_OFFLINE=1 bash scripts/run_all.sh) ---
+CHECK KAT ML-KEM files have 1000 count blocks: yes (mlkem512/768/1024 totals: 1000, 1000, 1000)
+GENERATE VERDICT: PASS -- 0 failing checks: none
+RUN_ALL RESULT: PASS (offline)
+
+--- 2b. checksums AFTER offline regen ---
+all 75 files still OK (sha256sum -c printed no non-OK line) — generate_tables.log is byte-identical after regeneration
+
+--- 3. live run (bash scripts/run_all.sh) ---
+BUILD_LIBOQS RESULT: PASS
+CONSISTENCY retime medians within 25%: yes (18 ops, worst deviation 20.4%)
+CONSISTENCY KAT derand 20/20: yes (SUMMARY ML-KEM-768 derand-vs-rsp: 20 field-PASS, 0 field-FAIL)
+CONSISTENCY liboqs non-reduced pk accepted == 0: yes (0 accepted)
+CONSISTENCY tampered sk decaps errors == 6/6: yes (6 tamper cases)
+CONSISTENCY PQClean non-reduced pk accepted == 20/20: yes (20/20)
+CONSISTENCY tail mutation accepted == 0/1088: yes (accepted (ss == original): 0)
+CONSISTENCY timing diff < 3-sigma threshold: yes (mean difference (valid - invalid) = -0.066 us; 3-sigma detection threshold = 0.740 us)
+CONSISTENCY div/idiv total == 0: yes (total 0)
+CONSISTENCY retime ss mismatches == 0: yes (0)
+CONSISTENCY retime verify failures == 0: yes (0)
+CONSISTENCY VERDICT: PASS -- 0 failing checks: none
+RUN_ALL RESULT: PASS (live)
+scratch dir removed: <PACK-WORKDIR>/scratch.cbw90p
+
+--- 4. tables byte-identical after live run (cmp vs the pack) ---
+18/18 tables byte-identical (benchmark_latency, benchmark_sizes, benchmark_crosscheck, kat_fidelity, input_checks, tail_mutation, timing_probes, memory, findings — .csv and .md each)
+
+NOTE: outputs/build.log differs between the pack and the clone by design — it records the scratch directory path, which is unique per run. The generated tables (*.csv, *.md) and generate_tables.log are byte-identical.
